@@ -6,7 +6,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # config.secret_key = '9b7035092ab59756df829d41924b1b68f0de2a53027123bf46f6bf61b0dca5605786fc50138ec00df0f90b277e95cb95204c8a1cc7a9bcc11dfa0479adca06eb'
 
-  # ==> Mailer Configuration
+  # ==> mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
@@ -256,4 +256,8 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  #To config the facebook authentication!
+  config.omniauth :facebook, ENV["FB_ID"], ENV["FB_SECRET"], scope: 'email', display: 'page', image_size: 'square', secure_image_url: true
+
 end

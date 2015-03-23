@@ -9,6 +9,7 @@ gem 'figaro'
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'omniauth-facebook'
 gem 'pg'
 gem 'puma',           group: :production
 gem 'rails', '4.2.0'
