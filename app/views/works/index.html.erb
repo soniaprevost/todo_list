@@ -1,25 +1,66 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <ul>
-        <% @works.each do |work| %>
-          <li>
-            <ul class ="list-inline">
-              <li><%= work.description %></li>
-              <li><%= link_to work.state, work_path(work), method: :patch, class:"btn btn-primary" %></li>
-              <li>
-                <%= link_to '<i class="fa fa-trash"></i>'.html_safe, work_path(work),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-              </li>
-              <li><%= work.project %></li>
-            </ul>
-          </li>
-        <% end %>
-      </ul>
+    <div class="col-sm-8 col-sm-offset-2">
       <%= simple_form_for(@work, url: works_path) do |f| %>
-        <%= f.input :description, label: 'Describe the task' %>
-        <%= f.button :submit %>
+        <div class="form-inline">
+          <h3>New Task</h3>
+          <%= f.input :description, placeholder: 'Describe the task', label: false %>
+          <%= f.input :project, placeholder: 'Assign to project', label: false %>
+          <%= f.button :submit, 'add', class:"btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h3>All Tasks</h3>
+      <div class="col-sm-5">
+        <h4>Task</h4>
+      </div>
+      <div class="col-sm-3">
+        <h4>Project</h4>
+      </div>
+      <div class="col-sm-2">
+        <div class="text-center">
+          <h4>State</h4>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="text-center">
+          <h4>Delete?</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <% @works.each do |work| %>
+        <div class="col-sm-5">
+          <%= work.description %>
+        </div>
+        <div class="col-sm-3">
+          <%= work.project %>
+        </div>
+        <div class="col-sm-2">
+          <div class="text-center">
+            <% if work.state == false %>
+              <%= simple_form_for work, url: work_path(work), method: :patch do |f| %>
+                <%= f.hidden_field :state, value: true %>
+                <%= f.submit "Done?", class: "btn btn-danger" %>
+              <% end %>
+            <% else %>
+              <button class="btn btn-success">done</button>
+            <% end %>
+
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="text-center">
+            <%= link_to '<i class="fa fa-trash"></i>'.html_safe, work_path(work),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
