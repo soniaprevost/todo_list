@@ -39,9 +39,10 @@ class WorksController < ApplicationController
     redirect_to works_path
   end
 
+
   private
 
   def work_params
-    params.require(:work).permit(:description, :user_id, :state, :project)
+    params.require(:work).permit(:description, :user_id, :state, :project, :allocated_time)
   end
 end
