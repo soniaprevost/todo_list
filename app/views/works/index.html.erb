@@ -1,10 +1,26 @@
-<% if @works.count > 0 %>
-  <% @works.each do |work| %>
-    <%= work.description %> - <%= work.state %>
-  <% end %>
-<% end %>
-
-<%= simple_form_for(@work, url: works_path) do |f| %>
-  <%= f.input :description, label: 'Describe the task' %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <ul>
+        <% @works.each do |work| %>
+          <li>
+            <ul class ="list-inline">
+              <li><%= work.description %></li>
+              <li><%= link_to work.state, work_path(work), method: :patch, class:"btn btn-primary" %></li>
+              <li>
+                <%= link_to '<i class="fa fa-trash"></i>'.html_safe, work_path(work),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+              </li>
+              <li><%= work.project %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+      <%= simple_form_for(@work, url: works_path) do |f| %>
+        <%= f.input :description, label: 'Describe the task' %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
