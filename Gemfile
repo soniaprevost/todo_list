@@ -4,6 +4,7 @@ ruby "2.2.0"
 
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'devise'
 gem 'figaro'
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.0'
