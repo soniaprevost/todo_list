@@ -1,0 +1,10 @@
+<% if @works.count > 0 %>
+  <% @works.each do |work| %>
+    <%= work.description %> - <%= work.state %>
+  <% end %>
+<% end %>
+
+<%= simple_form_for(@work, url: works_path) do |f| %>
+  <%= f.input :description, label: 'Describe the task' %>
+  <%= f.button :submit %>
+<% end %>
