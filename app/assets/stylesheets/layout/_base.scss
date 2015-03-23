@@ -4,3 +4,19 @@
  * Before writing in this file, look if there is not
  * already a Bootstrap SCSS variable that does the same job
  * ------------------------------------- */
+
+ body {
+  background-color: white;
+ }
+
+ .inline {
+  display: inline;
+ }
+
+ .padded-small {
+  padding: 10px;
+ }
+
+ .padded-right {
+  padding-right: 15px;
+ }

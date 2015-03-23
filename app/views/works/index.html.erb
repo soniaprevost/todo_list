@@ -1,22 +1,27 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <%= simple_form_for(@work, url: works_path) do |f| %>
-        <div class="form-inline">
-          <h3>New Task</h3>
-          <%= f.input :description, placeholder: 'Describe the task', label: false %>
-          <%= f.input :project, placeholder: 'Assign to project', label: false %>
-          <%= f.input :allocated_time, placeholder: 'Minutes to complete task', label: false %>
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="padded-small bg-grayish">
+        <%= simple_form_for(@work, url: works_path) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inline text-center">
+            <h3 class="inline"></h3>
+            <div class="padded-right inline">
+              <%= f.input :description, placeholder: 'Describe the task', label: false %>
+            </div>
+            <div class="padded-right inline">
+              <%= f.input :project, prompt: "is it?", label: false %>
+            </div>
+            <%#= f.input :allocated_time, placeholder: 'Minutes to complete task', label: false %>
 
-          <%= f.button :submit, 'add', class:"btn btn-success" %>
-        </div>
-      <% end %>
+            <%= f.button :submit, "+", class:"btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <h3>All Tasks</h3>
-      <div class="col-sm-5">
+    <div class="col-sm-6 col-sm-offset-3">
+<!--       <h3>All Tasks</h3>
+ -->      <div class="col-sm-5">
         <h4>Task</h4>
       </div>
       <div class="col-sm-3">
@@ -35,7 +40,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
+    <div class="col-sm-6 col-sm-offset-3">
       <% @works.each do |work| %>
         <div class="col-sm-5">
           <%= work.description %>
@@ -61,11 +66,6 @@
             <%= link_to '<i class="fa fa-trash"></i>'.html_safe, work_path(work),
             method: :delete,
             data: { confirm: "Are you sure?" } %>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="text-center">
-            it tooks <%= work.timer(work) %>
           </div>
         </div>
       <% end %>
