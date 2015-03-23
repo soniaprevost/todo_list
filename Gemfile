@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby "2.2.0"
 
 
+gem "figaro"
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'font-awesome-sass'
