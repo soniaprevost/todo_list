@@ -9,13 +9,9 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     @work.user_id = current_user.id
     if @work.save
-      flash[:notice] = "Task created"
-
       redirect_to works_path
     else
-      flash[:alert] = "unable to create task"
-
-      render 'index'
+      redirect_to works_path
     end
   end
 
@@ -27,7 +23,7 @@ class WorksController < ApplicationController
       redirect_to works_path
     else
       flash[:alert] = "unable to update task"
-      render "index"
+      redirect_to works_path
     end
   end
 

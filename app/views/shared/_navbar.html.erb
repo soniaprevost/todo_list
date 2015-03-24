@@ -15,10 +15,12 @@
           <li>
             <%= image_tag current_user.picture, class: "img-avatar" %>
           </li>
-          <li>
+          <li class="icone">
+            <div class="messagebox text-center">Task Manager</div>
             <%= link_to '<i class="fa fa-tasks"></i>'.html_safe, works_path %>
           </li>
-          <li>
+          <li class="icone">
+            <div class="messagebox text-center">Sign Out</div>
             <%= link_to destroy_user_session_path, method: :delete do %>
               <i class="fa fa-sign-out"></i> <%#= t ".sign_out", default: "Sign out" %>
             <% end %>

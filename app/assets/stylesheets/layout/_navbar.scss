@@ -136,6 +136,17 @@ $navbar-profile-border-width: 2px;
   }
 }
 
+.messagebox {
+  display: none;
+  position: absolute;
+  margin-top: 50px;
+  // margin-left: -20px;
+  // border:1px solid #000;
+  background-color: white;
+  // width: 70px;
+  font-size: 12px;
+  padding: 3px;
+}
 /* -------------------------------------
  * Navbar profile picture
  * ------------------------------------- */
