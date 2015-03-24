@@ -11,9 +11,6 @@
   margin: 2em;
 }
 
-.margin-neg {
-  margin-top: -100px;
-}
 .card {
   width: 90%;
   border-radius: 5px;
@@ -55,9 +52,9 @@
 .bg-black {
   background: black;
   color: white;
-  opacity: 0.5;
+  opacity: 0.7;
   height: 700px;
-  //margin-top: -22px;
+  margin-top: -100px;
 }
 
 .bg-gray {

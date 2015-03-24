@@ -4,7 +4,7 @@
     <div class="navbar-header">
       <ul class="nav navbar-nav">
         <li>
-          <%= link_to "Home", root_path %>
+          <%= link_to '<i class="fa fa-home"></i>'.html_safe, root_path %>
         </li>
       </ul>
     </div>
@@ -16,7 +16,7 @@
             <%= image_tag current_user.picture, class: "img-avatar" %>
           </li>
           <li>
-            <%= link_to "My tasks", works_path %>
+            <%= link_to '<i class="fa fa-tasks"></i>'.html_safe, works_path %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
@@ -25,12 +25,14 @@
           </li>
         <% elsif user_signed_in? %>
           <li>
-            <%= image_tag 'logo.svg', class: "img img-circle" %>
-            <%= current_user.name %>
+            <%= link_to '<i class="fa fa-user"></i>'.html_safe %>
+          </li>
+          <li>
+            <%= link_to '<i class="fa fa-tasks"></i>'.html_safe, works_path %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out"></i> <%= t ".sign_out", default: "Sign out" %>
+              <i class="fa fa-sign-out"></i> <%#= t ".sign_out", default: "Sign out" %>
             <% end %>
           </li>
         <% else %>
