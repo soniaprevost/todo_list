@@ -6,6 +6,7 @@ class Work < ActiveRecord::Base
   validates :description, presence: :true
   validates :user_id, presence: :true
   enumerize :project, in: %w(personal professional).sort
+  validates :project, presence: :true
 
   def time_taken(work)
     ((work.updated_at - work.created_at)/60000)
