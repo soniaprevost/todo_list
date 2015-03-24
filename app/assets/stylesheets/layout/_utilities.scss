@@ -20,6 +20,11 @@
     border: white;
   }
 }
+
+.line-through {
+  text-decoration: line-through;
+}
+
 .line {
   border-bottom: 1px solid $blue;
 }

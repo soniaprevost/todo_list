@@ -19,10 +19,7 @@ class WorksController < ApplicationController
     @work = current_user.works.find(params[:id])
     @work.state = true
     if @work.save
-      respond_to do |format|
-        format.html { works_path }
-        format.js
-      end
+      redirect_to works_path
     else
       redirect_to works_path
     end

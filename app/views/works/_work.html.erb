@@ -5,7 +5,13 @@
 </div>
   <div class="col-xs-10 col-sm-5">
     <div class="padding-top">
+      <% if work.state %>
+        <div class="line-through">
+          <%= work.description.capitalize %>
+        </div>
+      <% else %>
         <%= work.description.capitalize %>
+      <% end %>
     </div>
   </div>
   <div class="col-xs-8 col-sm-3">
@@ -31,7 +37,7 @@
         </div>
       <% else %>
         <div class="text-center">
-          <%= simple_form_for work, remote: :true do |f| %>
+          <%= simple_form_for work, method: :put do |f| %>
             <%= f.hidden_field :state, value: true %>
             <%= button_tag(type: 'submit', class: "btn btn-warning") do %>
               <i class="fa fa-check-square"></i>

@@ -15,10 +15,10 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-    $(document).on('ready', function() {
-      $(".icone").mouseover(function() {
-          $(this).children(".messagebox").show();
-      }).mouseout(function() {
-          $(this).children(".messagebox").hide();
-      });
-    });
+$(document).on('ready', function() {
+  $(".icone").mouseover(function() {
+      $(this).children(".messagebox").show();
+  }).mouseout(function() {
+      $(this).children(".messagebox").hide();
+  });
+});
