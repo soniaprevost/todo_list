@@ -7,6 +7,21 @@
   padding-top: 8em;
   padding-bottom: 8em;
 }
+.margin-space {
+  margin: 2em;
+}
+
+.margin-neg {
+  margin-top: -100px;
+}
+.card {
+  width: 90%;
+  border-radius: 5px;
+  margin: 110px 5%;
+}
+.btn {
+  margin: 0px 10px;
+}
 .bg-red {
   background: $red;
   color: white;
@@ -31,7 +46,21 @@
   background: $purple;
   color: white;
 }
+.bg-white {
+  background: white;
+  color: $gray-darker;
+  padding: 0.5em;
+}
 
-.bg-grayish {
+.bg-black {
+  background: black;
+  color: white;
+  opacity: 0.5;
+  height: 700px;
+  //margin-top: -22px;
+}
+
+.bg-gray {
   background: $grayish;
+  color: white;
 }

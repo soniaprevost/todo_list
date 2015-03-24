@@ -1,7 +1,7 @@
 /* -------------------------------------
  * Colors & Fonts
  * ------------------------------------- */
-$navbar-color: $gray-light;
+$navbar-color: black;
 $navbar-hover-color: $yellow;
 $navbar-font-family: $navbar-font;
 $navbar-font-size: 14px;
@@ -9,7 +9,7 @@ $navbar-text-transform: capitalize;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
 $navbar-font-family: $navbar-font;
-$navbar-bg: white;
+$navbar-bg: rgba(255,255,255,0);
 
 /* -------------------------------------
  * Box model
@@ -24,9 +24,10 @@ $navbar-border-bottom-color: $gray-lighter;
  * Navbar button
  * ------------------------------------- */
 $navbar-btn-height: 40px;
-$navbar-btn-bg: lightgrey;
+$navbar-btn-bg: $purple;
 $navbar-btn-color: white;
 $navbar-btn-horizontal-padding: 10px;
+$navbar-btn-horizontal-margin: 10px;
 $navbar-btn-radius: 2px;
 
 /* -------------------------------------
@@ -49,7 +50,7 @@ $navbar-profile-border-width: 2px;
   letter-spacing: $navbar-letter-spacing;
   padding-left: $navbar-horizontal-padding;
   padding-right: $navbar-horizontal-padding;
-  border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
+  // border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
   min-height: 0;
   transition: background 0.4s ease;
 
@@ -84,7 +85,7 @@ $navbar-profile-border-width: 2px;
     padding: 0 $navbar-btn-horizontal-padding;
     color: $navbar-btn-color;
     border-radius: $navbar-btn-radius;
-    margin-top: ($navbar-height + 2 * $navbar-vertical-padding - $navbar-btn-height) / 2;
+    margin: $navbar-btn-horizontal-margin;
     font-weight: bold;
     background-color: $navbar-btn-bg;
     font-size: 12px;
@@ -103,6 +104,7 @@ $navbar-profile-border-width: 2px;
     box-shadow: 0 0 2px rgb(200, 200, 200);
     height: $navbar-height - (2 * $navbar-profile-border-width);
     margin-right: 10px;
+    margin-top: 10px;
     border-radius: $navbar-profile-radius;
   }
 
