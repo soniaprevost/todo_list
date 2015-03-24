@@ -1,90 +1,90 @@
-<div class="mini-height">
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <div class="bg-blue padded-small text-center">
-        <h3>Today, I'll do</h3>
-        <div class="padded-small bg-grayish">
-          <%= simple_form_for(@work, url: works_path) do |f| %>
-            <%= f.error_notification %>
-            <div class="form-inline text-center">
-              <h3 class="inline"></h3>
-              <div class="inline">
-                <%= f.input :description, placeholder: 'Describe the task', label: false %>
+<div class="mini-height" id="background">
+  <div class="container">
+    <div class="padded-small"></div>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="bg-blue padded-small text-center">
+          <h3>Today, I'll do</h3>
+          <div class="padded-small bg-grayish">
+            <%= simple_form_for(@work, url: works_path) do |f| %>
+              <%= f.error_notification %>
+              <div class="form-inline text-center">
+                <h3 class="inline"></h3>
+                <div class="inline">
+                  <%= f.input :description, placeholder: 'Describe the task', label: false %>
+                </div>
+                <div class="inline">
+                  <%= f.input :project, prompt: "is it?", label: false %>
+                </div>
+                <%= f.button :submit, "+", class:"btn btn-success" %>
               </div>
-              <div class="inline">
-                <%= f.input :project, prompt: "is it?", label: false %>
-              </div>
-              <%= f.button :submit, "+", class:"btn btn-success" %>
             </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <div class="padded-small bg-white mini-height">
-        <div class="text-center">
-          <h3>I'm (normally) doing...</h3>
+          <% end %>
         </div>
-        <% @works.each do |work| %>
-        <div class="row">
-          <div class="col-xs-2 col-sm-1">
-            <div class="padding-top text-center">
-              <i class="fa fa-chevron-right"></i>
-            </div>
-          </div>
-            <div class="col-xs-10 col-sm-5">
-              <div class="padding-top">
-                  <%= work.description.capitalize %>
-              </div>
-            </div>
-            <div class="col-xs-8 col-sm-3">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="padded-small bg-white mini-height">
+          <div class="text-center">
+  <!--           <h3>I'm (normally) doing...</h3>
+   -->        </div>
+          <% @works.each do |work| %>
+          <div class="row">
+            <div class="col-xs-2 col-sm-1">
               <div class="padding-top text-center">
-                <% if work.project == "personal" %>
-                  <div class="bg-yellow">
-                    <%= work.project %>
-                  </div>
-                <% else %>
-                  <div class="bg-red">
-                    <%= work.project %>
-                  </div>
-                <% end %>
+                <i class="fa fa-chevron-right"></i>
               </div>
             </div>
-            <div class="col-xs-4 col-sm-3">
-              <div class="padded-small">
-                <% if work.state == false %>
-                  <div class="text-center">
-                    <%= simple_form_for work, url: work_path(work), method: :patch do |f| %>
-                      <%= f.hidden_field :state, value: true %>
-                      <%= button_tag(type: 'submit', class: "btn btn-warning") do %>
-                        <i class="fa fa-check-square"></i>
+              <div class="col-xs-10 col-sm-5">
+                <div class="padding-top">
+                    <%= work.description.capitalize %>
+                </div>
+              </div>
+              <div class="col-xs-8 col-sm-3">
+                <div class="padding-top text-center">
+                  <% if work.project == "personal" %>
+                    <div class="bg-yellow">
+                      <%= work.project %>
+                    </div>
+                  <% else %>
+                    <div class="bg-red">
+                      <%= work.project %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-xs-4 col-sm-3">
+                <div class="padded-small">
+                  <% if work.state == false %>
+                    <div class="text-center">
+                      <%= simple_form_for work, url: work_path(work), method: :patch do |f| %>
+                        <%= f.hidden_field :state, value: true %>
+                        <%= button_tag(type: 'submit', class: "btn btn-warning") do %>
+                          <i class="fa fa-check-square"></i>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                  </div>
-                <% else %>
-                  <div class="text-center padding-left">
-                    <%= link_to '<i class="fa fa-trash"></i>'.html_safe, work_path(work),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
-                  </div>
-                <% end %>
+                    </div>
+                  <% else %>
+                    <div class="text-center padding-left">
+                      <%= link_to '<i class="fa fa-trash"></i>'.html_safe, work_path(work),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <% content_for(:after_js) do %>
   <%= javascript_tag do %>
     $(document).on('ready', function() {
-
       $(".icone").mouseover(function() {
           $(this).children(".messagebox").show();
       }).mouseout(function() {
