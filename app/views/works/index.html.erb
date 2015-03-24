@@ -41,15 +41,3 @@
     </div>
   </div>
 </div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      $(".icone").mouseover(function() {
-          $(this).children(".messagebox").show();
-      }).mouseout(function() {
-          $(this).children(".messagebox").hide();
-      });
-    });
-  <% end %>
-<% end %>
