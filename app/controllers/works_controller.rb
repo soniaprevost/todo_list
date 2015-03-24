@@ -19,10 +19,11 @@ class WorksController < ApplicationController
     @work = current_user.works.find(params[:id])
     @work.state = true
     if @work.save
-      flash[:notice] = "Task updated"
-      redirect_to works_path
+      respond_to do |format|
+        format.html { works_path }
+        format.js
+      end
     else
-      flash[:alert] = "unable to update task"
       redirect_to works_path
     end
   end

@@ -30,49 +30,9 @@
   <!--           <h3>I'm (normally) doing...</h3>
    -->        </div>
           <% @works.each do |work| %>
-          <div class="row">
-            <div class="col-xs-2 col-sm-1">
-              <div class="padding-top text-center">
-                <i class="fa fa-chevron-right"></i>
-              </div>
-            </div>
-              <div class="col-xs-10 col-sm-5">
-                <div class="padding-top">
-                    <%= work.description.capitalize %>
-                </div>
-              </div>
-              <div class="col-xs-8 col-sm-3">
-                <div class="padding-top text-center">
-                  <% if work.project == "personal" %>
-                    <div class="bg-yellow">
-                      <%= work.project %>
-                    </div>
-                  <% else %>
-                    <div class="bg-red">
-                      <%= work.project %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-              <div class="col-xs-4 col-sm-3">
-                <div class="padded-small">
-                  <% if work.state == false %>
-                    <div class="text-center">
-                      <%= simple_form_for work, url: work_path(work), method: :patch do |f| %>
-                        <%= f.hidden_field :state, value: true %>
-                        <%= button_tag(type: 'submit', class: "btn btn-warning") do %>
-                          <i class="fa fa-check-square"></i>
-                        <% end %>
-                      <% end %>
-                    </div>
-                  <% else %>
-                    <div class="text-center padding-left">
-                      <%= link_to '<i class="fa fa-trash"></i>'.html_safe, work_path(work),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" } %>
-                    </div>
-                  <% end %>
-                </div>
+            <div class="row">
+              <div id="work-update">
+                <%= render 'work', work: work %>
               </div>
             </div>
           <% end %>

@@ -6,15 +6,3 @@
     <%= link_to "Start Your Todo List", works_path, class:"btn btn-primary" %>
   </div>
 </div>
-
-<% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).on('ready', function() {
-      $(".icone").mouseover(function() {
-          $(this).children(".messagebox").show();
-      }).mouseout(function() {
-          $(this).children(".messagebox").hide();
-      });
-    });
-  <% end %>
-<% end %>
