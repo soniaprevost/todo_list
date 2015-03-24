@@ -29,7 +29,6 @@ class WorksController < ApplicationController
 
   def destroy
     @work = current_user.works.find(params[:id])
-
     @work.destroy
 
     redirect_to works_path
